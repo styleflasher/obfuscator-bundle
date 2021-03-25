@@ -1,5 +1,0 @@
-services:
-    Styleflasher\Obfuscation\Twig\EmailObfuscatorExtension:
-        class: Styleflasher\Obfuscation\Twig\EmailObfuscatorExtension
-        tags:
-            - { name: twig.extension }

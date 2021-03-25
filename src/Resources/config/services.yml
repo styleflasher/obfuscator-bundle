@@ -1,0 +1,5 @@
+services:
+    Styleflasher\ObfuscatorBundle\Twig\ObfuscatorExtension:
+        class: Styleflasher\ObfuscatorBundle\Twig\ObfuscatorExtension
+        tags:
+            - { name: twig.extension }

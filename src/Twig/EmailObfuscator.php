@@ -1,45 +1,12 @@
 <?php
 
-namespace Styleflasher\Obfuscation\Twig;
+namespace Styleflasher\ObfuscatorBundle\Twig;
 
-use Twig\Extension\AbstractExtension;
-use Twig\TwigFilter;
+use Twig\Extension\RuntimeExtensionInterface;
 
-class EmailObfuscatorExtension extends AbstractExtension
+class EmailObfuscator implements RuntimeExtensionInterface
 {
-    /**
-     * Returns the name of the extension.
-     *
-     * @return string The extension name
-     */
-    public function getName()
-    {
-        return 'propaganistas.emailObfuscator';
-    }
-
-    /**
-     * Returns a list of filters to add to the existing list.
-     *
-     * @return array An array of filters
-     */
-    public function getFilters()
-    {
-        return [
-            new TwigFilter('obfuscateEmail', [$this, 'parse']),
-        ];
-    }
-
-    /**
-     * Twig filter callback.
-     *
-     * @return string Filtered content
-     */
-    public function parse($content)
-    {
-        return $this->obfuscateEmail($content);
-    }
-
-    private function obfuscateEmail(string $content): string
+    public function obfuscateEmail(string $content): string
     {
         // Casting $string to a string allows passing of objects implementing the __toString() magic method.
         $string = (string)$content;

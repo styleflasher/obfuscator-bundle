@@ -1,9 +1,17 @@
-# StyleflasherEmailObfuscation
+# Styleflasher Obfuscation Bundle
+
+## Installation
+
+``` bash
+composer require styleflasher/obfuscation-bundle
+```
+
+## Enable the Bundle
 
 ``` yml
 // config/bundles.php
 return [
     // ...
-    App\Acme\TestBundle\AcmeTestBundle::class => ['all' => true],
+    Styleflasher\ObfuscatorBundle\StyleflasherObfuscatorBundle::class => ['all' => true],
 ];
 ```
