@@ -3,10 +3,9 @@
 namespace Styleflasher\ObfuscatorBundle\Twig;
 
 use Twig\Extension\AbstractExtension;
-use Twig\Extension\RuntimeExtensionInterface;
 use Twig\TwigFilter;
 
-class ObfuscatorExtension extends AbstractExtension implements RuntimeExtensionInterface
+class ObfuscatorExtension extends AbstractExtension
 {
     /**
      * Returns a list of filters to add to the existing list.

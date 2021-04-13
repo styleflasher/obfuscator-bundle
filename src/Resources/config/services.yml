@@ -3,3 +3,8 @@ services:
         class: Styleflasher\ObfuscatorBundle\Twig\ObfuscatorExtension
         tags:
             - { name: twig.extension }
+
+    Styleflasher\ObfuscatorBundle\Twig\EmailObfuscator:
+        class: Styleflasher\ObfuscatorBundle\Twig\EmailObfuscator
+        tags:
+            - { name: twig.runtime }
