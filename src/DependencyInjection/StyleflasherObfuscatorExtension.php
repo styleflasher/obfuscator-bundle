@@ -1,5 +1,6 @@
 <?php
 
+namespace Styleflasher\ObfuscatorBundle\DependencyInjection;
 
 use Symfony\Component\Config\FileLocator;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
@@ -15,6 +16,6 @@ class StyleflasherObfuscatorExtension extends Extension
             $container,
             new FileLocator(__DIR__ . '/../Resources/config')
         );
-        $loader->load('services.xml');
+        $loader->load('services.yml');
     }
 }
