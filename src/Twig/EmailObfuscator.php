@@ -39,20 +39,23 @@ class EmailObfuscator implements RuntimeExtensionInterface
                 $parts = array_map('trim', $parts);
 
                 // ROT13 implementation for JS-enabled browsers
-                $js = '<script type="text/javascript">Rot13.write(' . "'" . str_rot13($parts[0]) . "'" . ');</script>';
+//                $js = '<script type="text/javascript">Rot13.write(' . "'" . str_rot13($parts[0]) . "'" . ');</script>';
+//
+//                // Reversed direction implementation for non-JS browsers
+//                if (0 === stripos($parts[0], '<a')) {
+//                    // Mailto tag; if link content equals the email, just display the email, otherwise display a formatted string.
+//                    $nojs = ($parts[1] == $parts[3]) ? $parts[1] : (' > ' . $parts[1] . ' < ' . $parts[3]);
+//                } else {
+//                    // Plain email; display the plain email.
+//                    $nojs = $parts[0];
+//                }
+//                $nojs = '<noscript><span style="unicode-bidi:bidi-override;direction:rtl;">' . strrev($nojs) . '</span></noscript>';
 
-                // Reversed direction implementation for non-JS browsers
-                if (0 === stripos($parts[0], '<a')) {
-                    // Mailto tag; if link content equals the email, just display the email, otherwise display a formatted string.
-                    $nojs = ($parts[1] == $parts[3]) ? $parts[1] : (' > ' . $parts[1] . ' < ' . $parts[3]);
-                } else {
-                    // Plain email; display the plain email.
-                    $nojs = $parts[0];
-                }
-                $nojs = '<noscript><span style="unicode-bidi:bidi-override;direction:rtl;">' . strrev($nojs) . '</span></noscript>';
+                // for Vue application
+                $js = "<template class=\"email-obfuscation\">" . str_rot13($parts[0]) . "</template>";
 
                 // Safeguard the obfuscation so it won't get picked up by the next iteration.
-                return str_replace('@', $safeguard, $js . $nojs);
+                return str_replace('@', $safeguard, $js);
             }, $string);
         }
 

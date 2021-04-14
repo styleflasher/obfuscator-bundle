@@ -21,7 +21,16 @@ return [
 ### Add the Rot13-JS
 
 ``` html
-<script src="/bundles/styleflasherobfuscator/js/EmailObfuscator.js"></script>
+<script>
+    function rot13(str) {
+        var input     = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz';
+        var output    = 'NOPQRSTUVWXYZABCDEFGHIJKLMnopqrstuvwxyzabcdefghijklm';
+        var index     = x => input.indexOf(x);
+        var translate = x => index(x) > -1 ? output[index(x)] : x;
+        return str.split('').map(translate).join('');
+    }
+    document.getElementsByClassName("email-obfuscation").item(0).innerHTML = rot13(document.getElementsByClassName("email-obfuscation").item(0).innerHTML);
+</script>
 ```
 
 ### Override content_fields (optional)
