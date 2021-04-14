@@ -1,6 +1,6 @@
 {
-    "name": "styleflasher/obfuscation-bundle",
-    "description": "E-Mail Obfuscation Bundle",
+    "name": "styleflasher/obfuscator-bundle",
+    "description": "E-Mail Obfuscator Bundle",
     "type": "symfony-bundle",
     "license": "MIT",
     "authors": [
