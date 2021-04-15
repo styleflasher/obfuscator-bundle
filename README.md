@@ -1,4 +1,4 @@
-# Styleflasher Obfuscation Bundle
+# Styleflasher Obfuscator Bundle
 
 ## Installation
 
